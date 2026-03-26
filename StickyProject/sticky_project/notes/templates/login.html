@@ -1,0 +1,39 @@
+{% extends 'base.html' %} <!-- Ye template base.html ko inherit karta hai, matlab base layout aur styling automatically apply ho jati hai -->
+
+{% block title %}Login{% endblock %}<!-- Ye page ka title define karta hai jo browser tab me show hoga; base.html ke title block ko override karta hai -->
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="height: 80vh;">
+  
+  <div class="card shadow p-4 rounded-4 login-card" style="width: 400px;">
+    
+    <h3 class="text-center mb-4">Login</h3>
+
+    <form method="POST">
+      {% csrf_token %}<!--Django form me security ke liye CSRF token add karta hai, taake cross-site request forgery attacks se bachaya ja sake -->
+
+      {% if form.errors %}
+        <div class="alert alert-danger">
+          Invalid username or password
+        </div>
+      {% endif %}
+
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" name="username" class="form-control rounded-3" placeholder="Enter username">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" name="password" class="form-control rounded-3" placeholder="Enter password">
+      </div>
+
+      <button type="submit" class="btn btn-gradient w-100 rounded-3">Login</button>
+    </form>
+
+    <p class="text-center mt-3">
+      Don’t have an account? <a href="{% url 'register' %}">Register</a>
+    </p>
+  </div>
+</div>
+{% endblock %}

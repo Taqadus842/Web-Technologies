@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Search Form -->
+<form method="GET" class="mb-3 d-flex">
+    <input type="text" name="q" class="form-control me-2" placeholder="Search notes..." value="{{ query|default:'' }}">
+    <button type="submit" class="btn btn-outline-primary">Search</button>
+</form>
+
+<!-- Header + Create Button -->
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="text-primary">Your Notes</h2>
+    <a href="{% url 'note_create' %}" class="btn btn-success">Create New Note</a>
+</div>
+
+<!-- Notes Grid -->
+<div class="row">
+    {% for note in notes %}
+        <div class="col-md-4 mb-4">
+            <div class="card note-card shadow-sm" style="background-color: {{ note.color }};">
+                <div class="card-body">
+                    <h5 class="card-title">{{ note.title }}</h5>
+                    <p class="card-text">{{ note.content }}</p>
+                    <div class="d-flex justify-content-between">
+                        <a href="{% url 'note_edit' note.id %}" class="btn btn-sm btn-outline-primary">Edit</a>
+                        <a href="{% url 'note_delete' note.id %}" class="btn btn-sm btn-outline-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <p class="text-muted">You have no notes. Click "Create New Note" to add one!</p>
+    {% endfor %}
+</div>
+{% endblock %}

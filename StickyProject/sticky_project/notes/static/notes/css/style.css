@@ -1,0 +1,224 @@
+/* ========================================
+   GLOBAL STYLING
+   ======================================== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+/* Links */
+a {
+    color: #ff4d6d;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: #ff6f91;
+}
+
+/* ========================================
+   SPLIT SCREEN LAYOUT
+   ======================================== */
+.split-container {
+    display: flex;
+    width: 800px;
+    max-width: 95%;
+    height: 80vh;
+    margin: 50px auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Left: form card */
+.form-card {
+    flex: 1;
+    padding: 40px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Right: welcome panel */
+.welcome-card {
+    flex: 1;
+    background: linear-gradient(135deg, #ff4d6d, #ff6f91);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    font-weight: 500;
+}
+
+.welcome-card h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.welcome-card p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+/* ========================================
+   LOGIN / REGISTER CARD ANIMATION
+   ======================================== */
+.login-card {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================
+   BUTTONS (PINK THEME)
+   ======================================== */
+.btn-gradient {
+    background: linear-gradient(135deg, #ff4d6d, #ff6f91);
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    transition: all 0.3s ease;
+}
+.btn-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255,77,109,0.4);
+}
+
+/* Primary / outline buttons */
+.btn-outline-primary {
+    color: #ff4d6d;
+    border: 1px solid #ff4d6d;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: #ff4d6d;
+    border-color: #ff4d6d;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255,77,109,0.4);
+}
+
+/* Success buttons (e.g., Create Note) */
+.btn-success {
+    background-color: #ff4d6d;
+    border-color: #ff4d6d;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+.btn-success:hover {
+    background-color: #ff6f91;
+    border-color: #ff6f91;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255,77,109,0.4);
+}
+
+/* Delete button */
+.btn-outline-danger {
+    color: #e63946;
+    border: 1px solid #e63946;
+    background-color: transparent;
+}
+.btn-outline-danger:hover {
+    background-color: #e63946;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(230,57,70,0.4);
+}
+
+/* ========================================
+   INPUT FIELDS
+   ======================================== */
+input.form-control, textarea.form-control {
+    border-radius: 12px;
+    padding: 12px 15px;
+    transition: all 0.3s ease;
+}
+
+input.form-control:focus, textarea.form-control:focus {
+    border-color: #ff4d6d;
+    box-shadow: 0 0 8px rgba(255,77,109,0.4);
+}
+
+/* ========================================
+   NEUMORPHIC CARD
+   ======================================== */
+.neumorphic-card {
+    background: #e0e0e0;
+    box-shadow: 8px 8px 15px #bebebe, -8px -8px 15px #ffffff;
+    transition: all 0.3s ease;
+}
+
+.neumorphic-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 12px 12px 20px #bebebe, -12px -12px 20px #ffffff;
+}
+
+/* ========================================
+   NOTES CARDS
+   ======================================== */
+.note-card {
+    border-radius: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    color: #333;
+}
+
+.note-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.note-card .card-title {
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.note-card .card-text {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.note-card .btn-outline-primary,
+.note-card .btn-outline-danger {
+    font-size: 0.85rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 8px;
+}
+
+/* ========================================
+   FORM STYLING
+   ======================================== */
+form {
+    width: 100%;
+}
+
+form h2 {
+    text-align: center;
+    color: #ff4d6d;
+    margin-bottom: 25px;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 767px) {
+    .note-card {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .login-card, .form-card {
+        width: 90% !important;
+        padding: 30px !important;
+    }
+}
